@@ -12,8 +12,9 @@ jobs:
         run: echo "RELEASE_VERSION=${{ github.ref_name }}" >> $GITHUB_ENV
 
       - name: Create New Relic deployment marker
-        uses: newrelic/deployment-marker-action@main
+        uses: JustinLewisNR/deployment-marker-action@main
         with:
           apiKey: ${{ secrets.NEW_RELIC_API_KEY }}
           guid: ${{ secrets.NEW_RELIC_DEPLOYMENT_ENTITY_GUID }}
           version: "${{ env.RELEASE_VERSION }}"
+          commit: "${{ github.sha }}"
