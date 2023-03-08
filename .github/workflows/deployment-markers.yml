@@ -20,4 +20,4 @@ jobs:
           commit: "${{ github.sha }}"
 
       - name: View Output
-        run: echo "$GITHUB_ENV"
+        run: echo "${{ env.deploymentId }}"
